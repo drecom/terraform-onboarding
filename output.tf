@@ -24,6 +24,13 @@ output "aws_iam_instance_profile_instance_profile_arn" {
 }
 
 #
+# S3 bucket
+#
+output "aws_s3_lambda_bucket_arn" {
+  value = local.on_common ? aws_s3_bucket.lambda_function[0].arn : ""
+}
+
+#
 # VPC
 #
 #output "aws_vpc_default_id" {
