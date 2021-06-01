@@ -7,7 +7,7 @@ locals {
   service_account_id = "380705665641"
 
   # 展開するサービス名
-  service_name = "base"
+  service_name = "workshop"
 
   # サービスのリージョン
   region = "ap-northeast-1"
@@ -127,7 +127,4 @@ variable "aws_access_key" {
 }
 
 variable "aws_secret_key" {
-}
-
-variable "key_pairs_public_key" {
 }
