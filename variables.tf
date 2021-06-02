@@ -37,62 +37,62 @@ locals {
   hostname_suffix = local.env == "production" ? "" : format("-%s", local.env)
 }
 
+##
+## VPC
+##
+#locals {
+#  # サービスの仮想CIDR範囲。実体はなく、vpc, subnet の計算に利用
+#  service_cidr = "10.1.1.0/18"
 #
-# VPC
+#  # 各環境毎のVPCのCIDR
+#  # service_cidr の /XY に newbits を足した分割で、netnum 番目を範囲とします
+#  # common は配列処理上の問題で形式上だけの記述です
+#  vpc_cidr_split = {
+#    common = {
+#      "newbits" = 0
+#      "netnum"  = 0
+#    }
+#    production = {
+#      "newbits" = 1
+#      "netnum"  = 0
+#    }
+#    staging = {
+#      "newbits" = 4
+#      "netnum"  = 8
+#    }
+#    system = {
+#      "newbits" = 4
+#      "netnum"  = 15
+#    }
+#  }
 #
-locals {
-  # サービスの仮想CIDR範囲。実体はなく、vpc, subnet の計算に利用
-  service_cidr = "10.1.1.0/18"
-
-  # 各環境毎のVPCのCIDR
-  # service_cidr の /XY に newbits を足した分割で、netnum 番目を範囲とします
-  # common は配列処理上の問題で形式上だけの記述です
-  vpc_cidr_split = {
-    common = {
-      "newbits" = 0
-      "netnum"  = 0
-    }
-    production = {
-      "newbits" = 1
-      "netnum"  = 0
-    }
-    staging = {
-      "newbits" = 4
-      "netnum"  = 8
-    }
-    system = {
-      "newbits" = 4
-      "netnum"  = 15
-    }
-  }
-
-  # 各環境毎のSubnetのCIDR
-  # service_cidr の /XY に netbits を足した分割で、
-  # start_netnum 番目を起点とし、aznum 個のAZに public + private の 2つずつ作成します
-  # common は配列処理上の問題で形式上だけの記述です
-  subnet_cidr_split = {
-    common = {
-      "newbits"      = 0
-      "start_netnum" = 0
-      "aznum"        = 0
-    }
-    production = {
-      "newbits"      = 4
-      "start_netnum" = 0
-      "aznum"        = 3
-    }
-    staging = {
-      "newbits"      = 7
-      "start_netnum" = 64
-      "aznum"        = 3
-    }
-    system = {
-      "newbits"      = 6
-      "start_netnum" = 60
-      "aznum"        = 2
-    }
-  }
-}
+#  # 各環境毎のSubnetのCIDR
+#  # service_cidr の /XY に netbits を足した分割で、
+#  # start_netnum 番目を起点とし、aznum 個のAZに public + private の 2つずつ作成します
+#  # common は配列処理上の問題で形式上だけの記述です
+#  subnet_cidr_split = {
+#    common = {
+#      "newbits"      = 0
+#      "start_netnum" = 0
+#      "aznum"        = 0
+#    }
+#    production = {
+#      "newbits"      = 4
+#      "start_netnum" = 0
+#      "aznum"        = 3
+#    }
+#    staging = {
+#      "newbits"      = 7
+#      "start_netnum" = 64
+#      "aznum"        = 3
+#    }
+#    system = {
+#      "newbits"      = 6
+#      "start_netnum" = 60
+#      "aznum"        = 2
+#    }
+#  }
+#}
 
 #
 # Lambda
@@ -109,12 +109,12 @@ locals {
   lambda_log_group_prefix = "/aws/lambda/"
 }
 
-#
-# Key
-#
-locals {
-  key_pairs_name   = "drecom_key"
-}
+##
+## Key
+##
+#locals {
+#  key_pairs_name   = "drecom_key"
+#}
 
 #
 # Code
