@@ -78,5 +78,12 @@ output "deployment_invoke_url" {
 # ECR URL
 #
 output "ecr_url" {
-  value = local.on_system ? aws_ecr_repository.sample-app[0].repository_url  : ""
+  value = local.on_system ? aws_ecr_repository.sample-app[0].repository_url : ""
+}
+
+#
+# App runner url
+#
+output "app_runner_url" {
+  value = local.on_service ? aws_apprunner_service.sample-app[0].service_url : ""
 }
