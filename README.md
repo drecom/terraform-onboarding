@@ -49,6 +49,8 @@ $ git pull
 # 各varsが基本的に下記ファイルに定義されており、まず一通り目を通して頂いて、適宜に編集してください
 $ vi variables.tf
 
+$ export AWS_ACCESS_KEY_ID="<ご自分のアカウント情報>"
+$ export AWS_SECRET_ACCESS_KEY="<ご自分のアカウント情報>"
 $ terraform init
 $ terraform workspace select common
 $ terraform plan
@@ -59,6 +61,8 @@ $ terraform apply
 ```
 $ terraform init
 $ terraform workspace select system
+$ chmod +x update_lambda_bucket.sh
+$ ./update_lambda_bucket.sh
 $ terraform plan
 $ terraform apply
 ```
