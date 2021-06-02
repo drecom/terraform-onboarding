@@ -73,3 +73,10 @@ output "aws_s3_lambda_bucket_arn" {
 output "deployment_invoke_url" {
   value = local.on_system ? aws_api_gateway_deployment.apideploy[0].invoke_url : ""
 }
+
+#
+# ECR URL
+#
+output "ecr_url" {
+  value = local.on_system ? aws_ecr_repository.sample-app[0].repository_url  : ""
+}
