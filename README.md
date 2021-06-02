@@ -13,10 +13,12 @@ Terraform初心者
 
 # 必要アイテム
 - Terminalアプリ(iTerm2やwsl2など)
+- [curl](https://formulae.brew.sh/formula/curl)
 - AWSアカウント
 - ブラウザ(AWSコンソールログイン用)
 - [Terraform(0.12+)](https://www.terraform.io/downloads.html)
   - ここで0.14.7バージョンを利用してるが、適宜に変更していただくことが可能
+- [docker](https://docs.docker.com/get-docker/)
 
 # 使い方
 - AWSクレデンシャルの設置
@@ -32,7 +34,7 @@ $ vi terraform.tfvars
 - [ドリコム](https://drecom.co.jp/)では、各環境(staging, productionなど)のリソースを相互に影響されないようにするため、[terraform workspace](https://www.terraform.io/docs/language/state/workspaces.html)機能を利用し、各環境のリソース隔離を実施
 - まずIAMなどの各環境の共通リソースを作るためのworkspace commonにて、plan&applyを体験していただく
 - 次に、vpc,subnet,route-tableなどの通信を司るリソースを作るために、workspace systemにて、plan&applyを体験していただく
-- 最後、EC2やElasticache, RDSなどのメインディッシュをstaging環境に作るためのworkspace stagingにて、plan&applyを体験していただく
+- 最後、EC2やECS, RDSなどのメインディッシュをproduction環境に作るためのworkspace productionにて、plan&applyを体験していただく
     - 初期のファイルで加え、自由に.tfファイルを追加してもらって、terraformの機能を体験していただく
     - issueベースに実現したい機能をディスカッションし、applyできるまでcommitを模索していただく
 - production環境を作る予定がないため、workspace productionは割愛させていただきます
@@ -67,17 +69,22 @@ $ terraform plan
 $ terraform apply
 ```
 
-## 3)Staging環境構築
+### 2-1)lambda functionにhello
+```
+$ terraform output | grep deployment_invoke_url | awk '{print $3}' | xargs curl
+```
+
+## 3)Production環境構築
 ```
 $ terraform init
-$ terraform workspace select staging
+$ terraform workspace select production
 $ terraform plan
 $ terraform apply
 ```
 
 ## 利用後はちゃんとお掃除
 ```
-$ terraform workspace select staging
+$ terraform workspace select production
 $ terraform destroy
 $ terraform workspace select system
 $ terraform destroy
