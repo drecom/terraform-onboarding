@@ -12,6 +12,10 @@ output "aws_iam_role_lambda_arn" {
   value = local.on_common ? aws_iam_role.lambda[0].arn : ""
 }
 
+output "aws_iam_role_apprunner_arn" {
+  value = local.on_common ? aws_iam_role.apprunner[0].arn : ""
+}
+
 #
 # Profile
 #

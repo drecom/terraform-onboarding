@@ -88,103 +88,38 @@ JSON
 
 }
 
-resource "aws_iam_role_policy_attachment" "lambda_read_only" {
-  count = local.on_common ? 1 : 0
-
-  role       = aws_iam_role.lambda[0].name
-  policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
-}
 
 #
-# For EC2 profile
+# App runner
 #
+resource "aws_iam_role" "apprunner" {
+    count = local.on_common ? 1 : 0
+    
+    name = "app-runner"
 
-resource "aws_iam_instance_profile" "instance_profile" {
-  count = local.on_common ? 1 : 0
-
-  name = "instance_profile"
-  role = aws_iam_role.instance_profile[0].name
-}
-
-resource "aws_iam_role" "instance_profile" {
-  count = local.on_common ? 1 : 0
-
-  name               = "instance_profile"
-  assume_role_policy = <<JSON
+    assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "",
-      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
       "Principal": {
-        "Service": "ec2.amazonaws.com"
+        "Service": [
+          "build.apprunner.amazonaws.com",
+          "tasks.apprunner.amazonaws.com"
+        ]
       },
-      "Action": "sts:AssumeRole"
+      "Effect": "Allow",
+      "Sid": ""
     }
   ]
 }
-JSON
-
+EOF
 }
 
-resource "aws_iam_role_policy" "instance_profile" {
-  count = local.on_common ? 1 : 0
+resource "aws_iam_role_policy_attachment" "apprunner" {
+    count = local.on_common ? 1 : 0
 
-  name   = "instance_profile"
-  role   = aws_iam_role.instance_profile[0].id
-  policy = <<JSON
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Deny",
-            "Action": [
-                "acm:*",
-                "directconnect:*",
-                "marketplacecommerceanalytics:*",
-                "route53:*",
-                "route53domains:*",
-                "support:*",
-                "iam:Add*",
-                "iam:Attach*",
-                "iam:Change*",
-                "iam:Create*",
-                "iam:Deactivate*",
-                "iam:Delete*",
-                "iam:Detach*",
-                "iam:Enable*",
-                "iam:Generate*",
-                "iam:Put*",
-                "iam:Remove*",
-                "iam:Reset*",
-                "iam:Resync*",
-                "iam:Set*",
-                "iam:Update*",
-                "iam:Upload*",
-                "ec2:AcceptVpc*",
-                "ec2:CreateVpc*",
-                "ec2:CreateSubnet*",
-                "ec2:CreateRoute*",
-                "ec2:DeleteVpc*",
-                "ec2:DeleteSubnet*",
-                "ec2:DeleteRoute*",
-                "ec2:Disassociate*",
-                "ec2:ModifyVpc*",
-                "ec2:ModifySubnet*",
-                "ec2:RejectVpc*",
-                "ec2:ReplaceRoute*"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "*",
-            "Resource": "*"
-        }
-    ]
+    role       = aws_iam_role.apprunner[0].name
+    policy_arn = "arn:aws:iam::aws:policy/service-role/AWSAppRunnerServicePolicyForECRAccess"
 }
-JSON
-
-}
-
