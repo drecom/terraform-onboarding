@@ -24,8 +24,10 @@
 
 # 使い方
 - AWSクレデンシャルの設置
+  - service_account_id = ""
   - aws_access_key = ""
   - aws_secret_key = ""
+  - region = "ap-northeast-1"
 ```
 $ mv terraform.tfvars.example terraform.tfvars
 

@@ -1,2 +1,8 @@
+# AWS account ID
+service_account_id = ""
+
 aws_access_key = ""
 aws_secret_key = ""
+
+# change only if you need
+region = "ap-northeast-1"

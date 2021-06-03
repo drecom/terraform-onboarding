@@ -2,14 +2,8 @@
 # Account
 #
 locals {
-  # AWS account ID
-  service_account_id = ""
-
   # no need to change
   service_name = "workshop"
-
-  # AWS region
-  region = "ap-northeast-1"
 
   # no need to change
   company_name = "drecom"
@@ -43,7 +37,17 @@ locals {
 }
 
 variable "aws_access_key" {
+  type = string
 }
 
 variable "aws_secret_key" {
+  type = string
+}
+
+variable "service_account_id" {
+  type = string
+}
+
+variable "region" {
+  type = string
 }

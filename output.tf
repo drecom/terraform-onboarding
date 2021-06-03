@@ -3,28 +3,12 @@
 #
 
 # Role
-
-output "aws_iam_role_vpc_flow_log_arn" {
-  value = local.on_common ? aws_iam_role.vpc-flow-log[0].arn : ""
-}
-
 output "aws_iam_role_lambda_arn" {
   value = local.on_common ? aws_iam_role.lambda[0].arn : ""
 }
 
 output "aws_iam_role_apprunner_arn" {
   value = local.on_common ? aws_iam_role.apprunner[0].arn : ""
-}
-
-#
-# Profile
-#
-output "aws_iam_instance_profile_instance_profile_id" {
-  value = local.on_common ? aws_iam_instance_profile.instance_profile[0].id : ""
-}
-
-output "aws_iam_instance_profile_instance_profile_arn" {
-  value = local.on_common ? aws_iam_instance_profile.instance_profile[0].arn : ""
 }
 
 #

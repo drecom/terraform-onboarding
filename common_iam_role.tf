@@ -15,8 +15,7 @@ resource "aws_iam_role" "lambda" {
         "Effect": "Allow",
         "Principal": {
             "Service": [
-                "lambda.amazonaws.com",
-                "autoscaling.amazonaws.com"
+                "lambda.amazonaws.com"
             ]
         }
     }
@@ -74,7 +73,7 @@ resource "aws_iam_role_policy" "lambda" {
         "kms:Decrypt"
       ],
       "Resource": [
-          "arn:aws:kms:${local.region}:${local.service_account_id}:alias/aws/ssm"
+          "arn:aws:kms:${var.region}:${var.service_account_id}:alias/aws/ssm"
       ]
     },
     {

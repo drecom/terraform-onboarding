@@ -30,7 +30,7 @@ resource "aws_s3_bucket" "lambda_function" {
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::${local.service_account_id}:root"
+                "AWS": "arn:aws:iam::${var.service_account_id}:root"
             },
             "Action": [
                 "s3:Get*",

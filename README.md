@@ -28,8 +28,10 @@ It is a perfect tool for those engaged in occupations such as IT infrastructure 
 
 # Usage
 - Set your AWS Credentials into a example file
+  - service_account_id = ""
   - aws_access_key = ""
   - aws_secret_key = ""
+  - region = "ap-northeast-1"
 ```
 $ mv terraform.tfvars.example terraform.tfvars
 $ vi terraform.tfvars
