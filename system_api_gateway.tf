@@ -1,5 +1,5 @@
 #
-# sshguard解除のセルフサービス用
+# sample lambda function's trigger (api-gateway)
 #
 resource "aws_api_gateway_rest_api" "hello-drecom" {
   count = local.on_system ? 1 : 0

@@ -2,31 +2,28 @@
 # Account
 #
 locals {
-  # 実行するアカウント(キーの取り違えによる事故防止のため自動取得はしない)
-  # 必ずダブルコーテーションで囲むこと
-  service_account_id = "380705665641"
+  # AWS account ID
+  service_account_id = ""
 
-  # 展開するサービス名
+  # no need to change
   service_name = "workshop"
 
-  # サービスのリージョン
+  # AWS region
   region = "ap-northeast-1"
 
-  # 会社名
+  # no need to change
   company_name = "drecom"
 }
 
 #
-# 環境ごとにリソースの必要性を判断するための変数
-#    - common  : IAM や key_pair など共通で使うもの
-#    - system  : サービス外でIAMを利用したり、サービス外VPCを利用するもの
-#    - network : VPCを利用する環境
-#    - service : サービス稼働に直接関係するもの
+# Variables for determining resource needs for each environment
+#    - common  : for commonly used resources
+#    - system  : for those resources which outside the service
+#    - service : for production service resources
 locals {
   env        = terraform.workspace
   on_common  = local.env == "common" ? true : false
   on_system  = local.env == "system" ? true : false
-  on_network = local.env != "common" ? true : false
   on_service = local.env != "common" && local.env != "system" ? true : false
 }
 
