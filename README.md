@@ -3,7 +3,7 @@
 # What's Terraform
 [Terraform](https://www.terraform.io/) is an IaC(infrastructure as code) software tool, created by [HashiCorp](https://www.hashicorp.com/).  
 Listed as a recommended tool for Infrastructure Provisioning at [DevOps Roadmap](https://roadmap.sh/devops),   
-it is a perfect tool for those engaged in occupations such as IT infrastructure engineers, DevOps engineers, and SRE.  
+It is a perfect tool for those engaged in occupations such as IT infrastructure engineers, DevOps engineers, and SRE.  
 
 # Getting Started
 - Based on the content for lectures for new SRE used in-house. -> [Drecom](https://drecom.co.jp/)
@@ -46,12 +46,12 @@ $ vi terraform.tfvars
 
 # Hands-on
 You may found the tfstate files are stored here in the local environment,  
-but the truth is we do all that stuff via CI(gitlab-ci, for our case),   
+but the truth is we do all that stuff via CI tool(gitlab-ci, in our case),   
 since it has some sensitive information that not suitable to be published, so let's do it locally here :)
 
 ## 1)Build common resources
 ```
-$ git pull
+$ git clone
 # Several variables are defined by variables.tf   
 # Before running other command, you may take a look at it.  
 $ vi variables.tf
