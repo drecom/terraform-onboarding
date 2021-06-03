@@ -6,7 +6,7 @@ Listed as a recommended tool for Infrastructure Provisioning at [DevOps Roadmap]
 It is a perfect tool for those engaged in occupations such as IT infrastructure engineers, DevOps engineers, and SRE.  
 
 # Getting Started
-- Based on the content for lectures for new SRE used in-house. -> [Drecom](https://drecom.co.jp/)
+- Based on the content for lectures for junior SRE used in-house. -> [Drecom](https://drecom.co.jp/)
 - A practice repository for using terraform via hands-on to show you how's terraform work and what's Drecom-style.
 - Please note that the Drecom-style terraform usage method is included, these may not be a best practice but we use them for our daily job.
 
