@@ -5,7 +5,7 @@
 resource "aws_iam_role" "lambda" {
   count = local.on_common ? 1 : 0
 
-  name               = "lambda"
+  name               = "lambda_exec"
   assume_role_policy = <<JSON
 {
   "Version": "2012-10-17",
@@ -28,7 +28,7 @@ JSON
 resource "aws_iam_role_policy" "lambda" {
   count = local.on_common ? 1 : 0
 
-  name   = "lambda_additional"
+  name   = "lambda_add"
   role   = aws_iam_role.lambda[0].id
   policy = <<JSON
 {
@@ -36,45 +36,12 @@ resource "aws_iam_role_policy" "lambda" {
   "Statement": [
     {
       "Action": [
-        "acm:*",
         "cloudwatch:*",
         "lambda:*",
-        "route53:*",
-        "route53domains:*",
-        "cloudfront:*",
-        "autoscaling:*",
-        "s3:*",
-        "ec2:*",
-        "elasticloadbalancing:*",
-        "rds:Copy*",
-        "rds:Download*",
-        "rds:DeleteDB*Snapshot",
-        "ecr:*",
-        "ecs:*",
-        "codebuild:*",
-        "codepipeline:*",
-        "sns:*",
-        "servicequotas:*",
-        "logs:*",
-        "waf:*",
-        "waf-regional:*",
-        "health:*",
-        "pricing:*",
-        "support:*"
+        "s3:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ssm:GetParameter*",
-        "secretsmanager:GetSecretValue",
-        "kms:Decrypt"
-      ],
-      "Resource": [
-          "arn:aws:kms:${var.region}:${var.service_account_id}:alias/aws/ssm"
-      ]
     },
     {
       "Action": "iam:PassRole",

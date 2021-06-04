@@ -23,10 +23,3 @@ resource "aws_apprunner_service" "sample-app" {
       Name = "sample-apprunner-service"
     }
 }
-
-resource "aws_cloudwatch_log_group" "sample-app" {
-  count = local.on_service ? 1 : 0
-
-  name              = format("%s%s", "/aws/apprunner/", aws_apprunner_service.sample-app[0].service_name)
-  retention_in_days = 7
-}
