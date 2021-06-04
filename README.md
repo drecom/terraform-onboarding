@@ -1,20 +1,20 @@
 # i18n
 [日本語版はこちらになります](./README_JP.md)
 # What's Terraform
-[Terraform](https://www.terraform.io/) is an IaC(infrastructure as code) software tool, created by [HashiCorp](https://www.hashicorp.com/).  
+[Terraform](https://www.terraform.io/) is an IaC(infrastructure as code) software tool, which created by [HashiCorp](https://www.hashicorp.com/).  
 Listed as a recommended tool for Infrastructure Provisioning at [DevOps Roadmap](https://roadmap.sh/devops),   
-It is a perfect tool for those engaged in occupations such as IT infrastructure engineers, DevOps engineers, and SRE.  
+[Terraform](https://www.terraform.io/) is a perfect tool for those engaged in occupations such as IT infrastructure engineers, DevOps engineers, and SREs.  
 
 # Getting Started
-- Based on the content for lectures for junior SRE used in-house. -> [Drecom](https://drecom.co.jp/)
-- A practice repository for using terraform via hands-on to show you how's terraform work and what's Drecom-style.
+- Based on the content for help junior SREs onboarding used in-house. -> [Drecom](https://drecom.co.jp/)
+- A practice repository for using terraform via hands-on to show you how terraform working and what's Drecom-style.
 - Please note that the Drecom-style terraform usage method is included, these may not be a best practice but we use them for our daily job.
 
 
 # Who might be interested
-- Terraform beginner
-- Junior DevOps engineer
-- Junior SRE
+- Terraform beginners
+- Junior DevOps engineers
+- Junior SREs
 - etc.
 
 # Prerequisite
@@ -99,7 +99,7 @@ $ terraform apply
 $ terraform workspace select production
 $ terraform destroy
 $ terraform workspace select system
-# Before you do next step, make sure you delete s3 bucket's all objects(means all versions)
+# Before you do next step, make sure you delete s3 bucket's all objects(which means all versions)
 $ terraform destroy
 $ terraform workspace select common
 $ terraform destroy

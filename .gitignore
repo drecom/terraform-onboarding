@@ -3,4 +3,4 @@ terraform.tfvars
 .tool-versions
 /.terraform/providers/*
 .terraform.lock.hcl
-/terraform.tfstate.d
+/terraform.tfstate.d/*
