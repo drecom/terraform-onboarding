@@ -14,7 +14,7 @@ resource "aws_apprunner_service" "sample-app" {
         image_configuration {
           port = "3000"
         }
-        image_identifier      = "${data.terraform_remote_state.system.outputs.ecr_url}:latest"
+        image_identifier      = "${data.terraform_remote_state.system.outputs.ecr_url}:${local.ecr_repo_tag}"
         image_repository_type = "ECR"
       }
     }

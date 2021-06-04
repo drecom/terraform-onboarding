@@ -36,6 +36,13 @@ locals {
   lambda_log_group_prefix = "/aws/lambda/"
 }
 
+#
+# App runner
+#
+locals {
+  ecr_repo_tag   = "release"
+}
+
 variable "aws_access_key" {
   type = string
 }
