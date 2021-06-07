@@ -44,7 +44,7 @@ $ vi terraform.tfvars
 
 - [ドリコム](https://drecom.co.jp/)では、各環境(staging, productionなど)のリソースを相互に影響されないようにするため、[terraform workspace](https://www.terraform.io/docs/language/state/workspaces.html)機能を利用し、各環境のリソース隔離を実施
 - まずIAM, s3 bucketなどの各環境の共通リソースを作るためのworkspace commonにて、plan&applyを体験していただく
-- 次に、lambda, apu-gateway, ecrなどの通信を司るリソースを作るために、workspace systemにて、plan&applyを体験していただく
+- 次に、lambda-function, api-gateway, ecrなどの通信を司るリソースを作るために、workspace systemにて、plan&applyを体験していただく
 - 最後、app-runnerなどのメインディッシュをproduction環境に作るためのworkspace productionにて、plan&applyを体験していただく
     - 初期のファイルで加え、自由に.tfファイルを追加してもらって、terraformの機能を体験していただく
     - issueベースに実現したい機能をディスカッションし、applyできるまでcommitを模索していただく
@@ -53,7 +53,7 @@ $ vi terraform.tfvars
 
 # ハンズオン
 ここではローカル環境にtfstateファイルを保存されてるように見受けられるが、  
-実際社内で使われてる時、plan & applyのステップは全部CI(Gitlab-CI)に任せて、tfstateファイルも管理されてるが、公開するといろいろまずいので、ここでは割愛させていただきます。  
+実際社内で使われてる時、plan & applyのステップは全部CI(ドリコムの場合は、Gitlab-CI)に任せて、tfstateファイルも管理されてるが、公開するといろいろまずいので、ここでは割愛させていただきます。  
 
 ## 1)共通系のリソース構築
 ```
@@ -81,6 +81,7 @@ $ terraform apply
 ### 2-2)lambda functionにhello
 ```
 $ terraform output | grep deployment_invoke_url | awk '{print $3}' | xargs curl
+{"drecom": "with entertainment <TIME_NOW+0900>"}
 ```
 
 ## 3)Production環境構築
