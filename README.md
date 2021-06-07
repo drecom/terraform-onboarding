@@ -50,7 +50,7 @@ $ vi terraform.tfvars
 - Finally, make a workspace called 'production' to build app-runner resources to your AWS env, via terraform plan & apply
     - Be free to add other .tf files to see how to build others resources.
     - Discussion with your partner based on issues, and see what you can do togerther.
-- __Don't forget to clear up after workshop, or AWS will send you a surprise bill__ :)
+- __Don't forget to clear up all AWS resources after workshop, or AWS may send you a surprise bill__ :)
 
 
 # Hands-on
