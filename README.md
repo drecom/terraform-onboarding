@@ -8,8 +8,8 @@ Listed as a recommended tool for Infrastructure Provisioning at [DevOps Roadmap]
 # Getting Started
 - Based on the content for help junior SREs onboarding used in-house. -> [Drecom](https://drecom.co.jp/)
 - A practice repository for using terraform via hands-on to show you how terraform working and what's Drecom-style.
-- Please note that the Drecom-style terraform usage method is included, these may not be a best practice but we use them for our daily job.
-- AWS Resources used
+- Please note that the Drecom-style terraform usage patterns are included, these may not be best practice but we use them for our daily work.
+- AWS Resources used:
   - IAM
   - S3
   - Api-gateway
@@ -30,7 +30,7 @@ Listed as a recommended tool for Infrastructure Provisioning at [DevOps Roadmap]
 - AWS account(with access key & secret access key)
 - A modern browser
 - [Terraform(0.12+)](https://www.terraform.io/downloads.html)
-  - we use Ver. 0.14.7 here
+  - Used Ver. 0.14.7 here
 - [docker](https://docs.docker.com/get-docker/)
 
 # Usage
@@ -53,7 +53,7 @@ $ vi terraform.tfvars
 - __Don't forget to clear up all AWS resources after workshop, or AWS may send you a surprise bill__ :)
 
 
-# Hands-on
+# Workshop
 You may found the tfstate files are stored here in the local environment,  
 but the truth is we do all that stuff via CI tool(gitlab-ci, in our case),   
 since it has some sensitive information that not suitable to be published, so let's do it locally here. 
