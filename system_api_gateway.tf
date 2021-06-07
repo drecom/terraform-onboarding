@@ -4,7 +4,7 @@
 resource "aws_api_gateway_rest_api" "hello-drecom" {
   count = local.on_system ? 1 : 0
 
-  name = "hello-drecom"
+  name = local.api_gateway_rest_api_name
 }
 
 resource "aws_api_gateway_resource" "proxy" {
@@ -62,7 +62,7 @@ resource "aws_api_gateway_deployment" "apideploy" {
   count = local.on_system ? 1 : 0
 
   rest_api_id = aws_api_gateway_rest_api.hello-drecom[0].id
-  stage_name  = "test"
+  stage_name  = local.api_gateway_deploy_stage_name
 
   depends_on = [
     aws_api_gateway_integration.hello-drecom,

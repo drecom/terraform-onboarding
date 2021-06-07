@@ -37,10 +37,20 @@ locals {
 }
 
 #
+# Api gateway
+#
+locals {
+  api_gateway_rest_api_name = "hello-drecom"
+  api_gateway_deploy_stage_name = "drecom"
+}
+
+#
 # App runner
 #
 locals {
-  ecr_repo_tag   = "release"
+  apprunner_service_name   = "sample-app"
+  apprunner_service_port   = "3000"
+  ecr_repo_tag             = "release"
 }
 
 variable "aws_access_key" {

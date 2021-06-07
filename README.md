@@ -9,6 +9,13 @@ Listed as a recommended tool for Infrastructure Provisioning at [DevOps Roadmap]
 - Based on the content for help junior SREs onboarding used in-house. -> [Drecom](https://drecom.co.jp/)
 - A practice repository for using terraform via hands-on to show you how terraform working and what's Drecom-style.
 - Please note that the Drecom-style terraform usage method is included, these may not be a best practice but we use them for our daily job.
+- AWS Resources used
+  - IAM
+  - S3
+  - Api-gateway
+  - Lambda function
+  - ECR
+  - App Runner
 
 
 # Who might be interested
@@ -43,13 +50,13 @@ $ vi terraform.tfvars
 - Finally, make a workspace called 'production' to build app-runner resources to your AWS env, via terraform plan & apply
     - Be free to add other .tf files to see how to build others resources.
     - Discussion with your partner based on issues, and see what you can do togerther.
-- Don't forget to clear up after workshop, or AWS will send you a surprise bill :)
+- __Don't forget to clear up after workshop, or AWS will send you a surprise bill__ :)
 
 
 # Hands-on
 You may found the tfstate files are stored here in the local environment,  
 but the truth is we do all that stuff via CI tool(gitlab-ci, in our case),   
-since it has some sensitive information that not suitable to be published, so let's do it locally here :)
+since it has some sensitive information that not suitable to be published, so let's do it locally here. 
 
 ## 1)Build common resources
 ```
