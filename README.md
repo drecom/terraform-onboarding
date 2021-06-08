@@ -50,7 +50,7 @@ $ vi terraform.tfvars
 - Finally, make a workspace called 'production' to build app-runner resources to your AWS env, via terraform plan & apply
     - Be free to add other .tf files to see how to build others resources.
     - Discussion with your partner based on issues, and see what you can do togerther.
-- __Don't forget to clear up all AWS resources after workshop, or AWS may send you a surprise bill__ :)
+- __Don't forget to clear up all AWS resources after workshop, or you may recieve a surprise bill from AWS.__ :)
 
 
 # Workshop
@@ -99,9 +99,9 @@ $ terraform plan
 $ terraform apply
 ```
 
-### 3-3) Access the output's URL to see application
+### 3-3) Access the output's URL via browser
 - app_runner_url
-## Don't forget to clear up after workshop
+## Don't forget to clear up resources after workshop
 ```
 $ terraform workspace select production
 $ terraform destroy
