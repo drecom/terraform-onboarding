@@ -20,7 +20,6 @@ resource "aws_apprunner_service" "sample-app" {
     }
 
     tags = {
-      Name = "sample-apprunner-service"
       ENV  = local.env
     }
 }
