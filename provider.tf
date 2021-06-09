@@ -7,7 +7,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Name = "${service_name}-${local.env}"
+      Name = "${local.service_name}-${local.env}"
     }
   }
 }
