@@ -1,7 +1,7 @@
 #
 # lambda function
 #
-resource "aws_s3_bucket" "lambda_function" {
+resource "aws_s3_bucket" "lambda-function" {
   count = local.on_common ? 1 : 0
 
   bucket = local.lambda_bucket
@@ -51,10 +51,10 @@ JSON
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "lambda_function" {
+resource "aws_s3_bucket_public_access_block" "lambda-function" {
   count = local.on_common ? 1 : 0
 
-  bucket = aws_s3_bucket.lambda_function[0].id
+  bucket = aws_s3_bucket.lambda-function[0].id
 
   block_public_acls       = true
   ignore_public_acls      = true

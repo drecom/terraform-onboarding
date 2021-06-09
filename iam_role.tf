@@ -5,7 +5,7 @@
 resource "aws_iam_role" "lambda" {
   count = local.on_common ? 1 : 0
 
-  name               = "lambda_exec"
+  name               = format("%s-%s", local.service_name, "lambda-exec")
   assume_role_policy = <<JSON
 {
   "Version": "2012-10-17",
@@ -28,7 +28,7 @@ JSON
 resource "aws_iam_role_policy" "lambda" {
   count = local.on_common ? 1 : 0
 
-  name   = "lambda_add"
+  name   = format("%s-%s", local.service_name, "lambda-add")
   role   = aws_iam_role.lambda[0].id
   policy = <<JSON
 {
@@ -61,7 +61,7 @@ JSON
 resource "aws_iam_role" "apprunner" {
     count = local.on_common ? 1 : 0
     
-    name = "app-runner"
+    name = format("%s-%s", local.service_name, "apprunner")
 
     assume_role_policy = <<EOF
 {
