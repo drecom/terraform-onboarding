@@ -3,38 +3,49 @@
 #
 
 # Role
-output "aws_iam_role_lambda_arn" {
+output "aws-iam-role-lambda-arn" {
   value = local.on_common ? aws_iam_role.lambda[0].arn : ""
 }
 
-output "aws_iam_role_apprunner_arn" {
+output "aws-iam-role-apprunner-arn" {
   value = local.on_common ? aws_iam_role.apprunner[0].arn : ""
 }
 
 #
 # S3 bucket
 #
-output "aws_s3_lambda_bucket_arn" {
-  value = local.on_common ? aws_s3_bucket.lambda_function[0].arn : ""
+output "aws-s3-lambda-bucket-arn" {
+  value = local.on_common ? aws_s3_bucket.lambda-function[0].arn : ""
+}
+
+output "aws-s3-lambda-bucket-name" {
+  value = local.on_common ? format("%s/%s", aws_s3_bucket.lambda-function[0].bucket, local.lambda_path) : ""
+}
+
+#
+# Lambda function
+#
+output "aws-lambda-function-handler" {
+  value = local.on_system ? aws_lambda_function.hello[0].handler : ""
 }
 
 #
 # apigateway url
 #
-output "deployment_invoke_url" {
-  value = local.on_system ? aws_api_gateway_deployment.apideploy[0].invoke_url : ""
+output "deployment-invoke-url" {
+  value = local.on_system ? aws_api_gateway_deployment.api-deploy[0].invoke_url : ""
 }
 
 #
 # ECR URL
 #
-output "ecr_url" {
+output "ecr-url" {
   value = local.on_system ? aws_ecr_repository.sample-app[0].repository_url : ""
 }
 
 #
 # App runner url
 #
-output "app_runner_url" {
+output "apprunner-url" {
   value = local.on_service ? aws_apprunner_service.sample-app[0].service_url : ""
 }

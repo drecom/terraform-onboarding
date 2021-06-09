@@ -2,11 +2,8 @@
 # Account
 #
 locals {
-  # no need to change
+  # just change this value to a custom one
   service_name = "workshop"
-
-  # no need to change
-  company_name = "drecom"
 }
 
 #
@@ -25,11 +22,13 @@ locals {
 # Lambda
 #
 locals {
-  lambda_bucket   = "drecom-lambda"
-  lambda_key      = "lambda.zip"
-  lambda_main_key = "lambda_main.zip"
-  lambda_lib_key  = "lambda_lib.zip"
+  lambda_bucket   = "drecom-terraform-workshop"
+  lambda_path     = format("%s-%s", local.service_name, "lambda")
+  lambda_key      = "${local.lambda_path}/lambda.zip"
+  lambda_main_key = "${local.lambda_path}/lambda-main.zip"
+  lambda_lib_key  = "${local.lambda_path}/lambda-lib.zip"
   lambda_runtime  = "python3.6"
+  lambda_function_name = "hello"
 }
 
 locals {
@@ -40,8 +39,8 @@ locals {
 # Api gateway
 #
 locals {
-  api_gateway_rest_api_name = "hello-drecom"
-  api_gateway_deploy_stage_name = "drecom"
+  api_gateway_rest_api_name = "hello"
+  api_gateway_deploy_stage_name = "example"
 }
 
 #

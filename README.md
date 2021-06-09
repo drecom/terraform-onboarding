@@ -3,10 +3,10 @@
 # What's Terraform
 [Terraform](https://www.terraform.io/) is an IaC(infrastructure as code) software tool, which created by [HashiCorp](https://www.hashicorp.com/).  
 Listed as a recommended tool for Infrastructure Provisioning at [DevOps Roadmap](https://roadmap.sh/devops),   
-[Terraform](https://www.terraform.io/) is a perfect tool for those engaged in occupations such as IT infrastructure engineers, DevOps engineers, and SREs.  
+[Terraform](https://www.terraform.io/) is a perfect tool for those engaged in occupations such as IT infrastructure engineer, DevOps engineer, and SRE.  
 
 # Getting Started
-- Based on the content for help junior SREs onboarding used in-house. -> [Drecom](https://drecom.co.jp/)
+- Based on the content for help junior SRE onboarding used in-house. -> [Drecom](https://drecom.co.jp/)
 - A practice repository for using terraform via hands-on to show you how terraform working and what's Drecom-style.
 - Please note that the Drecom-style terraform usage patterns are included, these may not be best practice but we use them for our daily work.
 - AWS Resources used:
@@ -30,7 +30,7 @@ Listed as a recommended tool for Infrastructure Provisioning at [DevOps Roadmap]
 - AWS account(with access key & secret access key)
 - A modern browser
 - [Terraform(0.12+)](https://www.terraform.io/downloads.html)
-  - Used Ver. 0.14.7 here
+  - Used Ver. 1.0.0 here
 - [docker](https://docs.docker.com/get-docker/)
 
 # Usage
@@ -47,7 +47,7 @@ $ vi terraform.tfvars
 - To prevent the resources of each environment (staging, production, etc.) from being influenced by each other, [Drecom](https://drecom.co.jp/) use [terraform workspace](https://www.terraform.io/docs/language/state/workspaces.html) to get it done.
 - Firstly, make a workspace called 'common' to build IAM, S3 bucket resources to your AWS env, via terraform plan & apply
 - Secondly, make a workspace called 'system' to build lambda-function, api-gateway, ecr resources to your AWS env, via terraform plan & apply
-- Finally, make a workspace called 'production' to build app-runner resources to your AWS env, via terraform plan & apply
+- Finally, make a workspace called 'production' to build apprunner resources to your AWS env, via terraform plan & apply
     - Be free to add other .tf files to see how to build others resources.
     - Discussion with your partner based on issues, and see what you can do togerther.
 - __Don't forget to clear up all AWS resources after workshop, or you may recieve a surprise bill from AWS.__ :)
@@ -60,7 +60,8 @@ since it has some sensitive information that not suitable to be published, so le
 
 ## 1)Build common resources
 ```
-$ git clone
+$ git clone ssh://git@git.drecom.jp:10022/infrastructure/terraform-oss-aws.git
+$ cd terraform-oss-aws
 # Several variables are defined by variables.tf   
 # Before running other command, you may take a look at it.  
 $ vi variables.tf
@@ -83,7 +84,8 @@ $ terraform apply
 
 ### 2-3)Say hello to lambda function
 ```
-$ terraform output | grep deployment_invoke_url | awk '{print $3}' | xargs curl
+# on workspace system
+$ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
 {"drecom": "with entertainment <TIME_NOW+0900>"}
 ```
 
@@ -100,7 +102,7 @@ $ terraform apply
 ```
 
 ### 3-3) Access the output's URL via browser
-- app_runner_url
+- apprunner-url
 ## Don't forget to clear up resources after workshop
 ```
 $ terraform workspace select production
