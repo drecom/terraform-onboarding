@@ -103,6 +103,20 @@ $ terraform apply
 
 ### 3-3) Access the output's URL via browser
 - apprunner-url
+
+### 3-option) Create a EC2 instance and install nginx
+```
+$ terraform workspace select production
+# remove comment mark
+$ vi ec2.tf
+$ terraform plan
+# It usually takes several minutes
+$ terraform apply
+# until instance healty(about 3min)
+# check it via AWS console
+$ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
+```
+
 ## Don't forget to clear up resources after workshop
 ```
 $ terraform workspace select production
