@@ -111,7 +111,7 @@ $ terraform plan
 $ terraform apply
 # インスタンスの状態がhealthyになるまでしばらくお待ちを(3分程度)
 # AWS consoleから確認できます
-$ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
+$ terraform output | grep practice-ec2-public-dns | awk '{print $3}' | xargs curl
 ```
 
 ## 利用後はちゃんとお掃除

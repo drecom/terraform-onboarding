@@ -114,7 +114,7 @@ $ terraform plan
 $ terraform apply
 # until instance healty(about 3min)
 # check it via AWS console
-$ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
+$ terraform output | grep practice-ec2-public-dns | awk '{print $3}' | xargs curl
 ```
 
 ## Don't forget to clear up resources after workshop
