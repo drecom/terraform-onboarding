@@ -101,6 +101,18 @@ $ terraform apply
 ### 3-3) ブラウザでoutputから出力されたURLにアクセス
 - apprunner-url
 
+### 3-option) Create a EC2 instance and install nginx
+```
+$ terraform workspace select production
+# remove comment mark
+$ vi ec2.tf
+$ terraform plan
+# 数分かかります...
+$ terraform apply
+# インスタンスの状態がhealthyになるまでしばらくお待ちを(3分程度)
+# AWS consoleから確認できます
+$ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
+```
 
 ## 利用後はちゃんとお掃除
 ```
