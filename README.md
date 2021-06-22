@@ -61,7 +61,7 @@ since it has some sensitive information that not suitable to be published, so le
 ## 1)Build common resources
 ```
 $ git clone git@github.com:drecom/terraform-onboarding.git
-$ cd terraform-oss-aws
+$ cd terraform-onboarding
 # Several variables are defined by variables.tf   
 # Before running other command, you may take a look at it.  
 $ vi variables.tf
