@@ -60,7 +60,7 @@ since it has some sensitive information that not suitable to be published, so le
 
 ## 1)Build common resources
 ```
-$ git clone ssh://git@git.drecom.jp:10022/infrastructure/terraform-oss-aws.git
+$ git clone git@github.com:drecom/terraform-onboarding.git
 $ cd terraform-oss-aws
 # Several variables are defined by variables.tf   
 # Before running other command, you may take a look at it.  
@@ -73,7 +73,7 @@ $ terraform apply
 
 ## 2)Build system resources
 ### 2-1)Upload lambda function to S3 bucket
-See [Toolbox](https://git.drecom.jp/infrastructure/tool-aws-oss)'s README for more details.
+See [drecom/demo-box](https://github.com/drecom/demo-box)'s README for more details.
 
 ### 2-2)Build resources
 ```
@@ -91,7 +91,7 @@ $ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
 
 ## 3)Build production resources
 ### 3-1) Push application image to AWS ECR
-See [sample-app](https://git.drecom.jp/infrastructure/tool-aws-oss/sample-app/go)'s README for more details.
+See [sample-app](https://github.com/drecom/demo-box/sample-app)'s README for more details.
 
 ### 3-2) Build resources
 ```

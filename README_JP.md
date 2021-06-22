@@ -57,7 +57,7 @@ $ vi terraform.tfvars
 
 ## 1)共通系のリソース構築
 ```
-$ git clone ssh://git@git.drecom.jp:10022/infrastructure/terraform-oss-aws.git
+$ git clone git@github.com:drecom/terraform-onboarding.git
 $ cd terraform-oss-aws
 # 各varsが基本的に下記ファイルに定義されており、まず一通り目を通して頂いて、適宜に編集してください
 $ vi variables.tf
@@ -69,7 +69,7 @@ $ terraform apply
 
 ## 2)システム系のリソース構築
 ### 2-1)lambda functionをS3のバケットにアップロード
-[Toolbox](https://git.drecom.jp/infrastructure/tool-aws-oss)のリポジトリをcloneし、READMEを参考に実行してください
+[drecom/demo-box](https://github.com/drecom/demo-box)のリポジトリをcloneし、READMEを参考に実行してください
 
 ### 2-2)リソース構築
 ```
@@ -88,7 +88,7 @@ $ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
 
 ## 3)Production環境構築
 ### 3-1) Push application image to AWS ECR
-[sample-app](https://git.drecom.jp/infrastructure/tool-aws-oss/sample-app/go)のREADMEを参考に、イメージをpushしてください
+[sample-app](https://github.com/drecom/demo-box/sample-app)のREADMEを参考に、イメージをpushしてください
 
 ### 3-2) リソース構築
 ```
