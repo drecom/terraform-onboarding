@@ -62,6 +62,8 @@ since it has some sensitive information that not suitable to be published, so le
 ```
 $ git clone git@github.com:drecom/terraform-onboarding.git
 $ cd terraform-onboarding
+$ mv terraform.tfvars.example terraform.tfvars
+$ vi terraform.tfvars
 # Several variables are defined by variables.tf   
 # Before running other command, you may take a look at it.  
 $ vi variables.tf

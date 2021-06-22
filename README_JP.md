@@ -59,6 +59,9 @@ $ vi terraform.tfvars
 ```
 $ git clone git@github.com:drecom/terraform-onboarding.git
 $ cd terraform-onboarding
+$ mv terraform.tfvars.example terraform.tfvars
+# 実際のAWS認証情報を入れる
+$ vi terraform.tfvars
 # 各varsが基本的に下記ファイルに定義されており、まず一通り目を通して頂いて、適宜に編集してください
 $ vi variables.tf
 $ terraform init
