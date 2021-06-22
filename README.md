@@ -66,6 +66,8 @@ $ cd terraform-oss-aws
 # Before running other command, you may take a look at it.  
 $ vi variables.tf
 $ terraform init
+# show all existing workspaces
+$ terraform workspace list
 $ terraform workspace select common
 $ terraform plan
 $ terraform apply

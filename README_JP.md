@@ -62,6 +62,8 @@ $ cd terraform-oss-aws
 # 各varsが基本的に下記ファイルに定義されており、まず一通り目を通して頂いて、適宜に編集してください
 $ vi variables.tf
 $ terraform init
+# show all existing workspaces
+$ terraform workspace list
 $ terraform workspace select common
 $ terraform plan
 $ terraform apply
