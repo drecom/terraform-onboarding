@@ -93,7 +93,7 @@ $ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
 
 ## 3)Build production resources
 ### 3-1) Push application image to AWS ECR
-See [sample-app](https://github.com/drecom/demo-box/sample-app)'s README for more details.
+See [sample-app](https://github.com/drecom/demo-box/tree/main/sample-app)'s README for more details.
 
 ### 3-2) Build resources
 ```

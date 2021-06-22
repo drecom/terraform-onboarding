@@ -90,7 +90,7 @@ $ terraform output | grep deployment-invoke-url | awk '{print $3}' | xargs curl
 
 ## 3)Production環境構築
 ### 3-1) Push application image to AWS ECR
-[sample-app](https://github.com/drecom/demo-box/sample-app)のREADMEを参考に、イメージをpushしてください
+[sample-app](https://github.com/drecom/demo-box/tree/main/sample-app)のREADMEを参考に、イメージをpushしてください
 
 ### 3-2) リソース構築
 ```
