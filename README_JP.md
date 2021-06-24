@@ -124,7 +124,6 @@ $ terraform output | grep practice-ec2-public-dns | awk '{print $3}' | xargs cur
 $ terraform workspace select production
 $ terraform destroy
 $ terraform workspace select system
-# 次のステップの前に、lambda functionの格納s3を手動でクリアする必要がある（バージョンの表示を有効にし、完全にすべてのバージョンを削除するように）
 $ terraform destroy
 $ terraform workspace select common
 $ terraform destroy

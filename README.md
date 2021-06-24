@@ -126,7 +126,6 @@ $ terraform output | grep practice-ec2-public-dns | awk '{print $3}' | xargs cur
 $ terraform workspace select production
 $ terraform destroy
 $ terraform workspace select system
-# Before you do next step, make sure you delete s3 bucket's all objects(which means all versions)
 $ terraform destroy
 $ terraform workspace select common
 $ terraform destroy
