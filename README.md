@@ -116,7 +116,7 @@ $ vi ec2.tf
 $ terraform plan
 # It usually takes several minutes
 $ terraform apply
-# until instance healty(about 3min)
+# until instance healthy(about 3min)
 # check it via AWS console
 $ terraform output | grep practice-ec2-public-dns | awk '{print $3}' | xargs curl
 ```
