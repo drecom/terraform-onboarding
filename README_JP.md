@@ -109,8 +109,8 @@ $ terraform apply
 ### 3-option) Create a EC2 instance and install nginx
 ```
 $ terraform workspace select production
-# remove comment mark
-$ vi ec2.tf
+# switch “production = false” to “production = true”
+$ vi ec2_variables.tf
 $ terraform plan
 # 数分かかります...
 $ terraform apply
