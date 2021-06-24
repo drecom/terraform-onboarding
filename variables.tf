@@ -22,12 +22,12 @@ locals {
 # Lambda
 #
 locals {
-  lambda_bucket   = "drecom-terraform-workshop"
-  lambda_path     = format("%s-%s", local.service_name, "lambda")
-  lambda_key      = "${local.lambda_path}/lambda.zip"
-  lambda_main_key = "${local.lambda_path}/lambda-main.zip"
-  lambda_lib_key  = "${local.lambda_path}/lambda-lib.zip"
-  lambda_runtime  = "python3.6"
+  lambda_bucket        = "drecom-terraform-workshop"
+  lambda_path          = format("%s-%s", local.service_name, "lambda")
+  lambda_key           = "${local.lambda_path}/lambda.zip"
+  lambda_main_key      = "${local.lambda_path}/lambda-main.zip"
+  lambda_lib_key       = "${local.lambda_path}/lambda-lib.zip"
+  lambda_runtime       = "python3.6"
   lambda_function_name = "hello"
 }
 
@@ -39,7 +39,7 @@ locals {
 # Api gateway
 #
 locals {
-  api_gateway_rest_api_name = "hello"
+  api_gateway_rest_api_name     = "hello"
   api_gateway_deploy_stage_name = "example"
 }
 
@@ -47,9 +47,9 @@ locals {
 # App runner
 #
 locals {
-  apprunner_service_name   = "sample-app"
-  apprunner_service_port   = "3000"
-  ecr_repo_tag             = "release"
+  apprunner_service_name = "sample-app"
+  apprunner_service_port = "3000"
+  ecr_repo_tag           = "release"
 }
 
 variable "aws_access_key" {

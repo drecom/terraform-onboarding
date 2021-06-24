@@ -59,11 +59,11 @@ JSON
 # App runner
 #
 resource "aws_iam_role" "apprunner" {
-    count = local.on_common ? 1 : 0
-    
-    name = format("%s-%s", local.service_name, "apprunner")
+  count = local.on_common ? 1 : 0
 
-    assume_role_policy = <<EOF
+  name = format("%s-%s", local.service_name, "apprunner")
+
+  assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -84,8 +84,8 @@ EOF
 }
 
 resource "aws_iam_role_policy_attachment" "apprunner" {
-    count = local.on_common ? 1 : 0
+  count = local.on_common ? 1 : 0
 
-    role       = aws_iam_role.apprunner[0].name
-    policy_arn = "arn:aws:iam::aws:policy/service-role/AWSAppRunnerServicePolicyForECRAccess"
+  role       = aws_iam_role.apprunner[0].name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSAppRunnerServicePolicyForECRAccess"
 }
