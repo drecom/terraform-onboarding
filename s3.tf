@@ -23,6 +23,8 @@ resource "aws_s3_bucket" "lambda-function" {
     enabled = true
   }
 
+  force_destroy = true
+
   policy = <<JSON
 {
     "Version": "2012-10-17",
