@@ -108,7 +108,7 @@ $ terraform apply
 ### 3-3) Access the output's URL via browser
 - apprunner-url
 
-### 3-option) Create a EC2 instance and install nginx
+### 3-option) Create an EC2 instance and install nginx
 ```
 $ terraform workspace select production
 # switch “production = false” to “production = true”
