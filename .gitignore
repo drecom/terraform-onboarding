@@ -4,3 +4,4 @@ terraform.tfvars
 /.terraform/providers/*
 .terraform.lock.hcl
 /terraform.tfstate.d/*
+.vscode/

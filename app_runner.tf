@@ -4,7 +4,7 @@
 resource "aws_apprunner_service" "sample-app" {
   count = local.on_service ? 1 : 0
 
-  service_name = format("%s-%s-%s", local.env, local.service_name, local.apprunner_service_name)
+  service_name = format("%s-%s", local.env, local.apprunner_service_name)
 
   source_configuration {
     authentication_configuration {

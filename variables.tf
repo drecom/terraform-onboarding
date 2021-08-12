@@ -2,7 +2,7 @@
 # Account
 #
 locals {
-  # just change this value to a custom one
+  # just name this value by yourself
   service_name = "workshop"
 }
 
@@ -22,8 +22,8 @@ locals {
 # Lambda
 #
 locals {
-  lambda_bucket        = "drecom-terraform-workshop"
-  lambda_path          = format("%s-%s", local.service_name, "lambda")
+  lambda_bucket        = format("%s-%s", "drecom-terraform", local.service_name)
+  lambda_path          = local.service_name
   lambda_key           = "${local.lambda_path}/lambda.zip"
   lambda_main_key      = "${local.lambda_path}/lambda-main.zip"
   lambda_lib_key       = "${local.lambda_path}/lambda-lib.zip"
@@ -47,7 +47,7 @@ locals {
 # App runner
 #
 locals {
-  apprunner_service_name = "sample-app"
+  apprunner_service_name = format("%s-%s", "sample-app", local.service_name)
   apprunner_service_port = "3000"
   ecr_repo_tag           = "release"
 }

@@ -22,7 +22,7 @@ resource "aws_lambda_function" "hello" {
 resource "aws_cloudwatch_log_group" "hello" {
   count = local.on_system ? 1 : 0
 
-  name              = format("%s%s", local.lambda_log_group_prefix, local.lambda_function_name)
+  name              = format("%s%s%s", local.lambda_log_group_prefix, local.service_name, local.lambda_function_name)
   retention_in_days = 1
 }
 

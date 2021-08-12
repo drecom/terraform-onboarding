@@ -18,7 +18,7 @@ output "aws-s3-lambda-bucket-arn" {
   value = local.on_common ? aws_s3_bucket.lambda-function[0].arn : ""
 }
 
-output "aws-s3-lambda-bucket-name" {
+output "aws-s3-lambda-bucket-path" {
   value = local.on_common ? format("%s/%s", aws_s3_bucket.lambda-function[0].bucket, local.lambda_path) : ""
 }
 
